@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import SearchBar from "./components/SearchBar";
 import RecipeList from "./components/RecipeList";
 import RecipeDetails from "./components/RecipeDetails";
+import AddRecipeForm from "./components/AddRecipeForm"; // Import the AddRecipeForm
 import useRecipeStore from "./components/recipeStore";
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
       <div className="p-4">
         <h1 className="text-3xl font-bold mb-4">Recipe Sharing Application</h1>
         <SearchBar />
+        <AddRecipeForm /> {/* Add the AddRecipeForm here */}
         <Routes>
           <Route path="/" element={<RecipeList />} />
           <Route path="/recipe/:id" element={<RecipeDetails />} />
