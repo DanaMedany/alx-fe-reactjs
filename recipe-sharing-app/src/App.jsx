@@ -1,13 +1,13 @@
-import "./App.css";
-import AddRecipeForm from "./stores/Components/AddRecipeForm";
-import RecipeList from "./stores/Components/RecipeList";
+import RecipeList from "./components/RecipeList";
+import AddRecipeForm from "./components/AddRecipeForm";
 
 function App() {
   return (
-    <>
-      <RecipeList />
+    <div className="App">
+      <h1>Recipe Sharing Application</h1>
       <AddRecipeForm />
-    </>
+      <RecipeList />
+    </div>
   );
 }
 
