@@ -1,15 +1,15 @@
 import React, { useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import SearchBar from "./components/SearchBar";
 import RecipeList from "./components/RecipeList";
+import RecipeDetails from "./components/RecipeDetails";
 import useRecipeStore from "./components/recipeStore";
 
 function App() {
   const setRecipes = useRecipeStore((state) => state.setRecipes);
 
-  // Example of fetching recipes (replace this with your actual data fetching logic)
   useEffect(() => {
     const fetchRecipes = async () => {
-      // Replace this with your API call or data fetching logic
       const recipes = [
         {
           id: 1,
@@ -21,7 +21,6 @@ function App() {
           title: "Chocolate Cake",
           description: "Rich and moist chocolate cake.",
         },
-        // Add more recipe data here
       ];
       setRecipes(recipes);
     };
@@ -30,11 +29,16 @@ function App() {
   }, [setRecipes]);
 
   return (
-    <div className="p-4">
-      <h1 className="text-3xl font-bold mb-4">Recipe Sharing Application</h1>
-      <SearchBar />
-      <RecipeList />
-    </div>
+    <Router>
+      <div className="p-4">
+        <h1 className="text-3xl font-bold mb-4">Recipe Sharing Application</h1>
+        <SearchBar />
+        <Routes>
+          <Route path="/" element={<RecipeList />} />
+          <Route path="/recipe/:id" element={<RecipeDetails />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 

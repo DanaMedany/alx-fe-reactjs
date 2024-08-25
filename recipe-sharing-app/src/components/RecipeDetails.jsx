@@ -1,10 +1,11 @@
-import { useRecipeStore } from "../stores/recipeStore";
-import EditRecipeForm from "./EditRecipeForm";
-import DeleteRecipeButton from "./DeleteRecipeButton";
+import React from "react";
+import { useParams } from "react-router-dom";
+import useRecipeStore from "./recipeStore";
 
-const RecipeDetails = ({ recipeId }) => {
+const RecipeDetails = () => {
+  const { id } = useParams();
   const recipe = useRecipeStore((state) =>
-    state.recipes.find((recipe) => recipe.id === recipeId)
+    state.recipes.find((recipe) => recipe.id === parseInt(id))
   );
 
   if (!recipe) {
@@ -13,10 +14,9 @@ const RecipeDetails = ({ recipeId }) => {
 
   return (
     <div>
-      <h1>{recipe.title}</h1>
+      <h1 className="text-2xl font-bold">{recipe.title}</h1>
       <p>{recipe.description}</p>
-      <EditRecipeForm recipe={recipe} />
-      <DeleteRecipeButton recipeId={recipeId} />
+      {/* You can add more detailed information here */}
     </div>
   );
 };
