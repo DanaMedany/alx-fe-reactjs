@@ -24,6 +24,8 @@ test("toggles todo completion status", () => {
   const todo = screen.getByText(/Learn React/i);
   fireEvent.click(todo);
   expect(todo).toHaveStyle("text-decoration: line-through");
+  fireEvent.click(todo); // Toggle back
+  expect(todo).not.toHaveStyle("text-decoration: line-through");
 });
 
 test("deletes a todo", () => {
