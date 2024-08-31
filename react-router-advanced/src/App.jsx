@@ -3,17 +3,11 @@ import Home from "./components/Home";
 import Profile from "./components/Profile";
 import Login from "./components/Login";
 import ProtectedRoute from "./components/ProtectedRoute";
-import useAuth from "./hooks/useAuth"; // Import useAuth
+import BlogPost from "./components/BlogPost"; // Import the BlogPost component
 
 function App() {
-  const { isAuthenticated, login, logout } = useAuth(); // Use the auth hook
-
   return (
     <Router>
-      <div>
-        <button onClick={login}>Login</button>
-        <button onClick={logout}>Logout</button>
-      </div>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route
@@ -25,6 +19,8 @@ function App() {
           }
         />
         <Route path="/login" element={<Login />} />
+        {/* Dynamic route for blog posts */}
+        <Route path="/blog/:id" element={<BlogPost />} />
       </Routes>
     </Router>
   );
