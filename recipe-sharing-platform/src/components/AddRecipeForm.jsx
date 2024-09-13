@@ -9,11 +9,12 @@ function AddRecipeForm() {
   const [formErrors, setFormErrors] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
 
+  // Function to handle changes to input fields
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value } = e.target; // Extract name and value from the event target
     setFormValues({
       ...formValues,
-      [name]: value,
+      [name]: value, // Update the form field based on the name attribute
     });
   };
 
