@@ -6,7 +6,7 @@ function AddRecipeForm() {
     ingredients: "",
     steps: "",
   });
-  const [formErrors, setFormErrors] = useState({});
+  const [errors, setErrors] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   // Function to handle changes to input fields
@@ -43,7 +43,7 @@ function AddRecipeForm() {
         steps: "",
       });
     } else {
-      setFormErrors(errors);
+      setErrors(errors);
       setIsSubmitted(false);
     }
   };
@@ -72,8 +72,8 @@ function AddRecipeForm() {
             className="w-full p-2 border border-gray-300 rounded-lg"
             placeholder="Enter recipe title"
           />
-          {formErrors.title && (
-            <p className="text-red-500 text-sm mt-1">{formErrors.title}</p>
+          {errors.title && (
+            <p className="text-red-500 text-sm mt-1">{errors.title}</p>
           )}
         </div>
 
@@ -92,10 +92,8 @@ function AddRecipeForm() {
             className="w-full p-2 border border-gray-300 rounded-lg"
             placeholder="Enter ingredients separated by commas"
           />
-          {formErrors.ingredients && (
-            <p className="text-red-500 text-sm mt-1">
-              {formErrors.ingredients}
-            </p>
+          {errors.ingredients && (
+            <p className="text-red-500 text-sm mt-1">{errors.ingredients}</p>
           )}
         </div>
 
@@ -114,8 +112,8 @@ function AddRecipeForm() {
             className="w-full p-2 border border-gray-300 rounded-lg"
             placeholder="Enter preparation steps"
           />
-          {formErrors.steps && (
-            <p className="text-red-500 text-sm mt-1">{formErrors.steps}</p>
+          {errors.steps && (
+            <p className="text-red-500 text-sm mt-1">{errors.steps}</p>
           )}
         </div>
 
