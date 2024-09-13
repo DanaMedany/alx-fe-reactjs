@@ -11,7 +11,8 @@ function AddRecipeForm() {
 
   // Function to handle changes to input fields
   const handleChange = (e) => {
-    const { name, value } = e.target; // Extract name and value from the event target
+    const name = e.target.name; // Extract name and value from the event target
+    const value = e.target.value; // Extract name and value from the event target
     setFormValues({
       ...formValues,
       [name]: value, // Update the form field based on the name attribute
