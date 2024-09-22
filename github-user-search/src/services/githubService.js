@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // Function to fetch users based on advanced criteria
-export const fetchAdvancedUserData = async (username, location, minRepos) => {
+export const fetchUserData = async (username, location, minRepos) => {
   const GITHUB_SEARCH_API = "https://api.github.com/search/users?q";
   let query = "";
 

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { fetchAdvancedUserData } from "../services/githubService";
+import { fetchUserData } from "../services/githubService";
 
 const SearchInput = () => {
   const [username, setUsername] = useState("");
@@ -13,7 +13,7 @@ const SearchInput = () => {
   const handleLoadMore = async () => {
     setLoading(true);
     try {
-      const newPageData = await fetchAdvancedUserData(
+      const newPageData = await fetchUserData(
         username,
         location,
         minRepos,
@@ -35,7 +35,7 @@ const SearchInput = () => {
     setUsersData(null);
 
     try {
-      const data = await fetchAdvancedUserData(username, location, minRepos);
+      const data = await fetchUserData(username, location, minRepos);
       setUsersData(data.items); // Search API returns data in 'items'
     } catch (error) {
       setError("No users found with the specified criteria.");
