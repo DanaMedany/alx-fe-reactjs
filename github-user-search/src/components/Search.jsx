@@ -2,10 +2,10 @@ import { useState } from "react";
 import { fetchUserData } from "../services/githubService";
 
 const SearchInput = () => {
-  const [username, setUsername] = useState(""); 
-  const [userData, setUserData] = useState(null);  
-  const [loading, setLoading] = useState(false); 
-  const [error, setError] = useState(""); 
+  const [username, setUsername] = useState("");
+  const [userData, setUserData] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   // Handle form submission
   const handleSubmit = async (e) => {
@@ -15,10 +15,10 @@ const SearchInput = () => {
     setUserData(null);
 
     try {
-      const data = await fetchUserData(username); 
+      const data = await fetchUserData(username);
       setUserData(data);
     } catch (error) {
-      setError("Looks like we can't find the user.");
+      setError("Looks like we cant find the user");
     } finally {
       setLoading(false);
     }
@@ -37,7 +37,6 @@ const SearchInput = () => {
         <button type="submit">Search</button>
       </form>
 
-      
       {loading && <p>Loading...</p>}
       {error && <p>{error}</p>}
       {userData && (
