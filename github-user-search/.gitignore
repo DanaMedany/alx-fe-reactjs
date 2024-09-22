@@ -1,4 +1,6 @@
+# secret
 .env
+
 # Logs
 logs
 *.log
